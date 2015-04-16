@@ -27,8 +27,24 @@ void parseCommands(string& commandStr, vector<string>& commands)	{
 }
 
 void runCommands(vector<string>& commands)	{ //runs the parsed vector of commands
-	cout << "Work in progress \n";
+	//remember to parse || and &&
+	int numCommands = commands.size();
+	for(int i = 0; i < numCommands; ++i)	{
+		if((commands.at(i).equals(";") || commands.at(i).equals("&&") || commands.at(i).equals("||")	{
+			pid_t process = fork();
+				if(process == 0)	{ //Child process branch
 
+				}
+
+				else if(process <= -1)	{ //Fork failed
+
+				}
+
+				else	{ //parent process
+
+				}
+		}
+	}
 }
 
 
