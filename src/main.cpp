@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
-#include <boost/toxenizer.hpp>
+#include <vector>
+#include <cstdio> //perror
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <boost/tokenizer.hpp>
 
 using namespace std; //Including std this time to make code easier to read
 using namespace boost;
@@ -11,8 +15,8 @@ void prompt()	{  //Add on name functionality later
 }
 
 void parseCommands(string& commandStr, vector<string>& commands)	{
-	char_seperator<char> delim(";", "#", " "); //things that separate commands
-	tokenizer<chaar_separator<char>> token(commandStr, delim);
+	char_separator<char> delim(";", "#"); //things that separate commands
+	tokenizer< char_separator<char> > token(commandStr, delim);
 
 	for(auto it = token.begin(); it!= token.end(); ++it)	{ //loop fills vector with commands
 		if (*it == "#")	{
@@ -31,7 +35,8 @@ void runCommands(vector<string>& commands)	{ //runs the parsed vector of command
 	int numCommands = commands.size();
 	vector<string> commandBlock; //Stores one instruction then gets wiped later1
 	for(int i = 0; i < numCommands; ++i)	{
-		if((commands.at(i).equals(";") || commands.at(i).equals("&&") || commands.at(i).equals("||")	{
+		if((commands.at(i).compare(";") || commands.at(i).compare("&&") || commands.at(i).compare("||")))	{
+
 			pid_t process = fork();
 				if(process == 0)	{ //Child process branch
 					
@@ -59,6 +64,10 @@ int main(int argc, char *argv[])	{
 		prompt();
 		getline (cin, input);
 		parseCommands(input, cmds);
+		for (auto it = cmds.begin(); it != cmds.end(); ++it)	{
+			cout << *it << " ";
+
+		}
 		runCommands(cmds);	
 	}
 
