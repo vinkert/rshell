@@ -1,0 +1,29 @@
+#rshell
+rshell is a command shell that uses C++ to make system calls.
+
+It is not very advanced, however it can run multiple commands in one line using the connectors "||", "&&", and/or ";".
+
+|| means that if the first command successfully runs, then the command directly after is not run. If the first command fails to run, then the second command is run.
+
+&& means that the second command is run only if the first command successfully runs.
+
+; is used to separate different commands.
+
+#How to run rshell
+```
+$git clone https://github.com/vchan019/rshell.git
+$cd rshell
+$git checkout hw0
+$make
+$bin/rshell
+```
+#Bugs
+```
+1. Passing in a blank argument does not work.
+
+2. After a command that is not valid is called exit must be called twice before it is actually executed.
+
+3. cd doesn't work properly.
+```
+
+Furthermore it supports comments which are denoted by "#".

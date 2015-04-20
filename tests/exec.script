@@ -1,0 +1,44 @@
+Script started on Sun 19 Apr 2015 10:12:21 PM PDT
+~
+vchan019@hammer $ cd rshell
+~/rshell
+vchan019@hammer $ make
+mkdir -p bin
+g++ -ansi -pedantic -Wall -Werror src/main.cpp -o bin/rshell
+~/rshell
+vchan019@hammer $ bin/rshell
+vchan019@hammer.cs.ucr.edu $ ls
+bin  exec.script  LICENSE  Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ ls -a
+.  ..  bin  exec.script  .git  LICENSE	Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ ls;
+bin  exec.script  LICENSE  Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ 
+vchan019@hammer.cs.ucr.edu $ true
+vchan019@hammer.cs.ucr.edu $ false
+vchan019@hammer.cs.ucr.edu $ echo hi
+hi
+vchan019@hammer.cs.ucr.edu $ echo hi && echo lol
+hi
+vchan019@hammer.cs.ucr.edu $ echo hi **^H^H        && ech      || echo lol
+hi
+lol
+vchan019@hammer.cs.ucr.edu $ ls &&&&&& ls
+bin  exec.script  LICENSE  Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ ls                                                         -a
+.  ..  bin  exec.script  .git  LICENSE	Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ ls            -a                      ; ls
+.  ..  bin  exec.script  .git  LICENSE	Makefile  README  src  tests
+bin  exec.script  LICENSE  Makefile  README  src  tests
+vchan019@hammer.cs.ucr.edu $ ece
+ERROR IN EXECUTING COMMAND: No such file or directory
+vchan019@hammer.cs.ucr.edu $ ls -234
+ls: invalid option -- '2'
+Try `ls --help' for more information.
+vchan019@hammer.cs.ucr.edu $ exit
+vchan019@hammer.cs.ucr.edu $ exit
+~/rshell
+vchan019@hammer $ exit
+exit
+
+Script done on Sun 19 Apr 2015 10:13:43 PM PDT
