@@ -3,32 +3,49 @@
 #include <vector>
 #include <cstdio> //perror
 #include <sys/types.h>
+#include <stdio.h>
+#include <string.h>//strtok
 #include <sys/wait.h>
+#include <unistd.h>
+#include <sys/types.h>
 #include <boost/tokenizer.hpp>
 
-using namespace std; //Including std this time to make code easier to read
-using namespace boost;
-
+using namespace std;
+int parseConnectors(string command, int orChecker, int andChecker);
+bool execCommand(string& singleCommand);
 void prompt()	{  //Add on name functionality later
-	cout << "$";
+	if(getlogin())
+		cout << getlogin() << '@';
+	char name[256] = {};
+	if(gethostname(name, 255) == 0)	{
+		gethostname(name, 255);
+		cout << name << ' ';
+	}
+	cout << "$ ";
 
 }
 
 void parseCommands(string& commandStr)	{
+	int findPound = commandStr.find("#");
+	if(findPound > -1)
+		commandStr.erase(findPound); //Handles comments
 	char* filter = strtok(&commandStr[0], ";");
 	while(filter)	{
-		parseConnectors(filter, 0, 0);
+		string temp(filter);
+		parseConnectors(temp, 0, 0);
+		filter = strtok(0, ";");
 	}
 }
 
-int parseConnectors(string& command, int orChecker, int andChecker) {  // 0 = fail, 1 = success, 2 = skip
+int parseConnectors(string command, int orChecker, int andChecker) {  // 0 = fail, 1 = success, 2 = skip
 	const char* andLocation = strstr(command.c_str(), "&&");
 	const char* orLocation = strstr(command.c_str(), "||");
 	if(andLocation && orLocation && orLocation < andLocation)
 		andLocation = 0; 
 	
-	if(andLocation !- 0)	{
-		orChecker = parseConnectors(input.substr(0, andLocation - input.c_str()), crChecker, andChecker); //command succeeded
+	if(andLocation != 0)	{
+		orChecker = parseConnectors(command.substr(0, andLocation - command.c_str()), orChecker, andChecker); //command succeeded
+		
 		if(orChecker == 1)
 			return parseConnectors(andLocation + 2, 1, 0); 
 		else	{ //Command failed
@@ -37,7 +54,7 @@ int parseConnectors(string& command, int orChecker, int andChecker) {  // 0 = fa
 	}
 	
 	else if(orLocation != 0)	{ 
-		andChecker = parseConnectors(input.substr(0, orLocation - input.c_str()), orChecker, andChecker);
+		andChecker = parseConnectors(command.substr(0, orLocation - command.c_str()), orChecker, andChecker);
 		if(andChecker == 1)
 			parseConnectors(orLocation + 2, 0, 2); 
 		else	{ 
@@ -54,73 +71,56 @@ int parseConnectors(string& command, int orChecker, int andChecker) {  // 0 = fa
 	return 0;
 }
 
+void getArgs(string& command, char* args[])	{
+	vector<string> temp;
+	char* removeSpaces = strtok(&command[0], " \t"); //Removes spaces and tabs
+	while (removeSpaces)	{
+		temp.push_back(removeSpaces);
+		removeSpaces = strtok(0, " \t");
+	}
+	int size = temp.size();
+	for(int i = 0; i < size; i++)	{
+		string& swap = temp.at(i);
+		args[i] = &swap[0];
+	}
+	args[size] = '\0';
 
-bool execCommand(string& input)	{
+}
+
+bool execCommand(string& singleCommand)	{
 	
-	if (input == "exit")	
+	if (singleCommand == "exit")	
 		exit(0);
 	int process = fork();
 	if (process == 0)	{
 		char* args[2048];
-		vector<string> arg;
+		getArgs(singleCommand, args);
 
+		int result = execvp(*args, args);
+		if(result <= -1)
+			perror("ERROR IN EXECUTING COMMAND");
 	}
-}
-
-void runCommands(vector<string>& commands)	{ //runs the parsed vector of commands
-	//remember to parse || and &&
-	int execvpStatus = 0;
-	int numCommands = commands.size();
-	char** commandBlock = new char*[numCommands]; //c-string of commands
-	for(int i = 0; i < numCommands; ++i)	{
-		if((commands.at(i).compare(";") || commands.at(i).compare("&&") || commands.at(i).compare("||")))	{
-
-			int process = fork();
-				if(process == 0)	{ //Child process branch
-					//commandBlock[loc] = NULL;
-					execvpStatus = execvp(commandBlock[0], commandBlock);					
-					if(execvpStatus <= -1)	{
-						perror("ERROR IN EXECUTING COMMAND");
-						int j = i;
-						bool foundConnecter = false;
-						if (commands.at(j).compare("&&"))	
-							j++;
-						for (;j < numCommands; j++)	{
-							if (commands
-						}
-
-					}
-				}
-
-				else if(process <= -1)	{ //Fork failed
-					perror("ERROR IN CREATING FORK");
-					exit(1);
-				}
-
-				else	{ //parent process
-					int waitStatus = waitpid(process, &execvpStatus, 0);
-					if (waitStatus <= -1)	
-						perror("ERROR IN WAIT");
-					
-				}
-		}
+	else if (process <= -1)	{
+		perror("ERROR IN CREATING FORK");
+		return false;
 	}
+	else	{
+		int waitChild = waitpid(process, &waitChild, 0);
+		if (waitChild <= -1)	
+			perror("WAITING FOR CHILD FAILED");
+		if(waitChild == 0)
+			return true;	
+	}
+	return false;
 }
-
 
 
 int main(int argc, char *argv[])	{
-//	while(1)	{
+	while(1)	{
 		string input;
-		vector<string> cmds;
 		prompt();
 		getline (cin, input);
-		parseCommands(input, cmds);
-		for (auto it = cmds.begin(); it != cmds.end(); ++it)	{
-			cout << *it << "\n";
-		}
-		cout << "PARSED COMMANDS SIZE: " << cmds.size() << endl;
-		runCommands(cmds);	
-//	}
+		parseCommands(input);
+	}
 
 }
