@@ -1,0 +1,63 @@
+Script started on Fri 01 May 2015 06:25:33 PM PDT
+~
+vchan019@hammer $ cd rshell
+~/rshell
+vchan019@hammer $ make
+mkdir -p bin
+g++ -ansi -pedantic -Wall -Werror src/main.cpp -o bin/rshell
+g++ -ansi -pedantic -Wall -Werror src/cp.cpp -o bin/cp
+g++ -ansi -pedantic -Wall -Werror src/ls.cpp -o bin/ls
+~/rshell
+vchan019@hammer $ bin/rshell[K[K[K[K[K[Kls
+LICENSE[0m   [34;1msrc[0m   Makefile[0m   README[0m   [34;1mtests[0m   [34;1mbin[0m   [32;1ma.out[0m   
+~/rshell
+vchan019@hammer $ bin/ls -a
+[;47m[34;1m.[0m   [;47m[34;1m..[0m   [;47m[34;1m.git[0m   LICENSE[0m   [34;1msrc[0m   Makefile[0m   README[0m   [34;1mtests[0m   [34;1mbin[0m   [32;1ma.out[0m   
+~/rshell
+vchan019@hammer $ bin/ls -a[KR
+
+[;47m[34;1m.:[0m
+LICENSE[0m   [34;1msrc[0m   Makefile[0m   README[0m   [34;1mtests[0m   [34;1mbin[0m   [32;1ma.out[0m   [;47m[34;1m.:[0m[34;1mrefs[0m   [34;1mbranches[0m   [34;1minfo[0m   [34;1mhooks[0m   description[0m   [34;1mobjects[0m   HEAD[0m   config[0m   [34;1mlogs[0m   packed-refs[0m   COMMIT_EDITMSG[0m   index[0m   FETCH_HEAD[0m   #COMMIT_EDITMSG#[0m   ORIG_HEAD[0m   [;47m[34;1m./.git:[0m[34;1mheads[0m   [34;1mtags[0m   [34;1mremotes[0m   [;47m[34;1m./.git/refs:[0mmaster[0m   exec[0m   [;47m[34;1m./.git/refs:[0mhw0[0m   [;47m[34;1m./.git/refs:[0m[34;1morigin[0m   [;47m[34;1m./.git/refs/remotes:[0mHEAD[0m   master[0m   exec[0m   [;47m[34;1m./.git:[0m[;47m[34;1m./.git:[0mexclude[0m   [;47m[34;1m./.git:[0m[32;1mpre-push.sample[0m   [32;1mpre-rebase.sample[0m   [32;1mapplypatch-msg.sample[0m   [32;1mprepare-commit-msg.sample[0m   [32;1mupdate.sample[0m   [32;1mcommit-msg.sample[0m   [32;1mpre-applypatch.sample[0m   [32;1mpre-commit.sample[0m   [32;1mpost-update.sample[0m   [;47m[34;1m./.git:[0m[34;1mpack[0m   [34;1minfo[0m   [34;1m9c[0m   [34;1m2d[0m   [34;1m8c[0m   [34;1me6[0m   [34;1m81[0m   [34;1m5c[0m   [34;1m61[0m   [34;1md0[0m   [34;1m74[0m   [34;1mef[0m   [34;1m96[0m   [34;1mb4[0m   [34;1m27[0m   [34;1mb3[0m   [34;1m9d[0m   [34;1m7c[0m   [34;1m51[0m   [34;1mf7[0m   [34;1mbb[0m   [34;1m1f[0m   [34;1m55[0m   [34;1me4[0m   [34;1m3a[0m   [34;1m4c[0m   [34;1m01[0m   [34;1m21[0m   [34;1m16[0m   [34;1m14[0m   [34;1m77[0m   [34;1mb1[0m   [34;1m6d[0m   [34;1m93[0m   [34;1m23[0m   [34;1m58[0m   [34;1mae[0m   [34;1m09[0m   [34;1maf[0m   [34;1m30[0m   [34;1m95[0m   [34;1mff[0m   [34;1mde[0m   [34;1m6b[0m   [34;1mb7[0m   [34;1m50[0m   [34;1ma7[0m   [34;1m5a[0m   [34;1mfc[0m   [34;1m79[0m   [34;1m20[0m   [34;1m98[0m   [;47m[34;1m./.git/objects:[0m[;47m[34;1m./.git/objects:[0m[;47m[34;1m./.git/objects:[0m05c10e54a62e3423cc7d7113d9b76efc7e5e2c[0m   [;47m[34;1m./.git/objects:[0m47279f2e6e3e22080b6c75884ac7403bdb9318[0m   [;47m[34;1m./.git/objects:[0mdb8451d9b90c1d4000c6f22eb86471a4568be6[0m   [;47m[34;1m./.git/objects:[0m9de29bb2d1d6434b8b29ae775ad8c2e48c5391[0m   [;47m[34;1m./.git/objects:[0m529d01677df3ec8a1564cb2ac7da239ce45e28[0m   [;47m[34;1m./.git/objects:[0m3bd9a3255d2bcce27745f942c3bae7d1025170[0m   [;47m[34;1m./.git/objects:[0m5e277ae6238d8d84636958abdd5315329ae28a[0m   [;47m[34;1m./.git/objects:[0m5527567bc3d0613c0ea25a76a9904d3ea97383[0m   [;47m[34;1m./.git/objects:[0ma87a836a4fcffb948a4fa7b4d9740d9dd8497e[0m   [;47m[34;1m./.git/objects:[0mfc5775fba0466793155a59978574677f2f3896[0m   [;47m[34;1m./.git/objects:[0m6a1c25274c8ad2ac575f7924e146874ec43641[0m   [;47m[34;1m./.git/objects:[0mb51ad24dc395a9027c0f0fb085745a73357f71[0m   [;47m[34;1m./.git/objects:[0mac8ef2bfb3c9ebd05d30a71f37125506551890[0m   [;47m[34;1m./.git/objects:[0mc75b3a35cf5f6426791f911b12b50482837b6e[0m   [;47m[34;1m./.git/objects:[0m2f060ad9d6f66aa6d115c53033202dafa367ca[0m   [;47m[34;1m./.git/objects:[0ma2af5a5131357d314f51299f16d396a9ec80b4[0m   [;47m[34;1m./.git/objects:[0m8cddf9ea6b10d99275e94bf21ba0a4c1b44b96[0m   [;47m[34;1m./.git/objects:[0mb04e3b37603085925fdfa3df222b3d12e27bb1[0m   [;47m[34;1m./.git/objects:[0mfb484efb9eb2eaaf2972672e30feaddc5be57b[0m   [;47m[34;1m./.git/objects:[0m1d6f2980a6d749e32d5ec82ec465dec475c57d[0m   [;47m[34;1m./.git/objects:[0m76716ebccd32a7d056453d00001e825c9d8b97[0m   [;47m[34;1m./.git/objects:[0me88f996f0017d3fd91dc30446344528b839833[0m   d51ea94e23a113860d472681da0d0a10460428[0m   [;47m[34;1m./.git/objects:[0m66b55e90e131675efe58565e4962c2b1d84e1c[0m   7e5a65091feba29b12bbca1b4b8a708d356343[0m   [;47m[34;1m./.git/objects:[0m297d4018b9c639c87e4b04e333c15f127865a9[0m   [;47m[34;1m./.git/objects:[0m7f681339f8420686f63bd8bdaffeabeb1abec7[0m   [;47m[34;1m./.git/objects:[0m1cb610b2d06992c3ec85deb5b13b01c8afcab3[0m   [;47m[34;1m./.git/objects:[0me18e477c13293b59cd8bc66ab00e4be5213d71[0m   [;47m[34;1m./.git/objects:[0mf2e8df58145788272f0c71c0956b0ad4569cda[0m   [;47m[34;1m./.git/objects:[0m360bc995ced1fb87a51142216bdba803d64372[0m   [;47m[34;1m./.git/objects:[0m4c2b132d7cb279c8845df1fec11e3c474523f3[0m   [;47m[34;1m./.git/objects:[0m6b0ebd28b18b587e989840bfefde665a99897b[0m   [;47m[34;1m./.git/objects:[0m85450d94ab3d0ebc11520b3616da547c6fca13[0m   [;47m[34;1m./.git/objects:[0mb05665aa58f8879c555d1565263138bf7e3e3e[0m   422d09f41cc91a508f75e5e6c0374b88f49b4b[0m   [;47m[34;1m./.git/objects:[0m9e1c682910bd441f9cea639d64919e76d28d48[0m   [;47m[34;1m./.git/objects:[0m870473085eadad900b864ac6db33439c2b937d[0m   [;47m[34;1m./.git/objects:[0m495a2cae7b4082089c65dba1de152e38b08a2e[0m   60c0e6b33d0190c46fd3868e1045b3760bab03[0m   [;47m[34;1m./.git/objects:[0me6027c59bcf53e9a460f4a207f8ced696e7eb5[0m   [;47m[34;1m./.git/objects:[0md85830f1c36a4a6da7e6b34853e3dcbc1a5ea2[0m   [;47m[34;1m./.git/objects:[0m768b0c47904ebf7a5f9cf1db552f31b8faf5d4[0m   [;47m[34;1m./.git/objects:[0m82262149dd3154c5234cb03c90a5932fceaed3[0m   [;47m[34;1m./.git/objects:[0m240c6b08919fb89de9d536ed012d0142a8a100[0m   [;47m[34;1m./.git/objects:[0meaf134152206c3adfdbbcfa00ce121ccf8502c[0m   [;47m[34;1m./.git/objects:[0m713f4b2064e69d67f677890d2e2b61ca43a730[0m   [;47m[34;1m./.git/objects:[0md13407b633622a0650b96de5126f15e2c46071[0m   [;47m[34;1m./.git/objects:[0m9054cb6e18de1c90ad4a50b2a742f43c24d6f0[0m   [;47m[34;1m./.git/objects:[0mc5b337ad7aadface70aeef077fff568a9c995f[0m   [;47m[34;1m./.git/objects:[0m531c4d38e3c427f291758e20589ea1a28cc299[0m   [;47m[34;1m./.git/objects:[0m195db4d8f3c73549ddc78f7713bc2277b287c4[0m   [;47m[34;1m./.git/objects:[0mde28cf0e9cf4e8328bf98bf6fd1d488b2b7f19[0m   [;47m[34;1m./.git/objects:[0m19d02067919ccfb7e3e05f0d562f999745e915[0m   [;47m[34;1m./.git:[0m[34;1mrefs[0m   HEAD[0m   [;47m[34;1m./.git/logs:[0m[34;1mremotes[0m   [34;1mheads[0m   [;47m[34;1m./.git/logs/refs:[0m[34;1morigin[0m   [;47m[34;1m./.git/logs/refs/remotes:[0mHEAD[0m   master[0m   exec[0m   [;47m[34;1m./.git/logs/refs:[0mmaster[0m   exec[0m   [;47m[34;1m.:[0mmain.cpp[0m   rshell.cpp[0m   [32;1ma.out[0m   makefile[0m   ran[0m   cp.cpp[0m   Timer.h[0m   [34;1mtestDir[0m   [34;1mbin[0m   ls.cpp[0m   [;47m[34;1m./src:[0m[;47m[34;1m./src:[0m[;47m[34;1m.:[0mexec.script[0m   ls.script[0m   [;47m[34;1m.:[0m[32;1mrshell[0m   [32;1mcp[0m   [32;1mls[0m   
+~/rshell
+vchan019@hammer $ bin/ls -R[Kl
+rw-------1   vchan019    csmajs      18047   Mon Apr 13 21:43:23 2015 LICENSE[0m
+rwx------4   vchan019    csmajs      4096    Fri May  1 18:17:32 2015 [34;1msrc[0m
+do_ypcall: clnt_call: RPC: Unable to send; errno = Operation not permitted
+do_ypcall: clnt_call: RPC: Unable to send; errno = Operation not permitted
+rw-------1   vchan019    csmajs      389     Fri May  1 18:17:58 2015 Makefile[0m
+rw-------1   vchan019    csmajs      866     Sun Apr 19 22:40:14 2015 README[0m
+rwx------2   vchan019    csmajs      4096    Fri May  1 18:19:31 2015 [34;1mtests[0m
+rwx------2   vchan019    csmajs      4096    Fri May  1 18:19:35 2015 [34;1mbin[0m
+rwx------1   vchan019    csmajs      34492   Fri May  1 18:11:02 2015 [32;1ma.out[0m
+
+~/rshell
+vchan019@hammer $ bin/ls -la
+rw-------1   vchan019    csmajs      18047   Mon Apr 13 21:43:23 2015 LICENSE[0m
+rwx------4   vchan019    csmajs      4096    Fri May  1 18:17:32 2015 [34;1msrc[0m
+rw-------1   vchan019    csmajs      389     Fri May  1 18:17:58 2015 Makefile[0m
+rw-------1   vchan019    csmajs      866     Sun Apr 19 22:40:14 2015 README[0m
+rwx------2   vchan019    csmajs      4096    Fri May  1 18:19:31 2015 [34;1mtests[0m
+rwx------2   vchan019    csmajs      4096    Fri May  1 18:19:35 2015 [34;1mbin[0m
+rwx------1   vchan019    csmajs      34492   Fri May  1 18:11:02 2015 [32;1ma.out[0m
+
+~/rshell
+vchan019@hammer $ bin/ls -la[K -a
+rwx------6   vchan019    csmajs      4096    Fri May  1 18:19:25 2015 [;47m[34;1m.[0m
+rwx------20  vchan019    csmajs      4096    Fri May  1 18:17:58 2015 [;47m[34;1m..[0m
+rwx------8   vchan019    csmajs      4096    Mon Apr 27 15:55:22 2015 [;47m[34;1m.git[0m
+rw-------1   vchan019    csmajs      18047   Mon Apr 13 21:43:23 2015 LICENSE[0m
+rwx------4   vchan019    csmajs      4096    Fri May  1 18:17:32 2015 [34;1msrc[0m
+do_ypcall: clnt_call: RPC: Unable to send; errno = Operation not permitted
+do_ypcall: clnt_call: RPC: Unable to send; errno = Operation not permitted
+error in getpwuid: Success
+~/rshell
+vchan019@hammer $ bin/ls -l -a[K[K[K[K38984
+Flag 3 not recognized 
+~/rshell
+vchan019@hammer $ bin/ls -38984[K[K[K[K[Kexit
+Flag e not recognized 
+~/rshell
+vchan019@hammer $ exit
+exit
+
+Script done on Fri 01 May 2015 06:27:37 PM PDT

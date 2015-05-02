@@ -24,6 +24,8 @@ $bin/rshell
 2. After a command that is not valid is called exit must be called twice before it is actually executed.
 
 3. cd doesn't work properly.
+
+4. ls -R doesn't work properly
 ```
 
 Furthermore it supports comments which are denoted by "#".
