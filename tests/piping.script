@@ -1,0 +1,93 @@
+Script started on Sun 17 May 2015 08:59:22 PM PDT
+~
+vchan019@hammer $ cd rshell/src
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo hello > this  FileDoesNotExist
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo hello>thisFileDoesNotExist1 # checking if no spaces works
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo > he    hello123123 > fil   existingf File #checking on existing file
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo hello >> this  FileDoesNotExist1 2 #checking ><^H>     >>
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo hello>>thisFileDoesNot               fileE     existingFile #checking >> with no sapces     paces
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: echo hello >> existingFile #checking >> with spaces on existing file
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: cat < thisFileDoesNotExxist123 23 #checking inputredir on nonexistent files
+error in open: No such file or directory
+error in dup2: Bad file descriptor
+^C
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: cat<thisFileDoesNotExist123 #checking inputredir on nonexistentfi   files no spaces
+error in open: No such file or directory
+error in dup2: Bad file descriptor
+^C
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: cat<existingFile #existing file with no spaces
+hello
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: cat < existingFiol  le #checking on existing w file with spaces
+hello
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: cat < existingFile | grep hel
+hello
+~/rshell/src
+vchan019@hammer $ ./a.out
+$: ls | grep file #testing pipes
+error in dup2: Bad file descriptor
+error in execvp: No such file or directory
+error in dup2: Bad file descriptor
+ls: cannot access |: No such file or directory
+ls: cannot access grep: No such file or directory
+ls: cannot access file: No such file or directory
+$: ls
+>      cp.cpp	     ls.cpp    redir.cpp   temporary.cpp	 thisFileDoesNotExist1
+a.out  existingFile  main.cpp  rshell.cpp  testDir		 thisFileDoesNotExist2
+bin    lmao	     makefile  Source.cpp  thisFileDoesNotExist  Timer.h
+$: ls | grep lmao
+error in dup2: Bad file descriptor
+ls: cannot access |: No such file or directory
+ls: cannot access grep: No such file or directory
+lmao
+$: ls | grep cpp
+error in dup2: Bad file descriptor
+ls: cannot access |: No such file or directory
+ls: cannot access grep: No such file or directory
+ls: cannot access cpp: No such file or directory
+$: ls | grep lmao | grep lk mao #tes     
+error in dup2: Bad file descriptor
+ls: cannot access |: No such file or directory
+ls: cannot access grep: No such file or directory
+ls: cannot access |: No such file or directory
+ls: cannot access grep: No such file or directory
+lmao  lmao
+$: ls  |greplma    lmao #testing with no spaces
+error in dup2: Bad file descriptor
+error in execvp: No such file or directory
+error in dup2: Bad file descriptor
+error in execvp: No such file or directory
+$: ^[[A    ls|grep lmao
+error in dup2: Bad file descriptor
+error in execvp: No such file or directory
+error in execvp: No such file or directory
+$: ecgi  ho hi >>    >> existingFile | hi
+$: exit
+error in execvp: No such file or directory
+$: ^C
+~/rshell/src
+vchan019@hammer $ exit
+exit
+
+Script done on Sun 17 May 2015 09:07:04 PM PDT

@@ -26,6 +26,10 @@ $bin/rshell
 3. cd doesn't work properly.
 
 4. ls -R doesn't work properly
+
+5. Piping with input redirection and output redirection doesn't work
+
+6. ./a.out has to be rerun after some commands
 ```
 
 Furthermore it supports comments which are denoted by "#".
