@@ -174,7 +174,6 @@ void outputRedir(const string& str1)	{
 	string outString;
 	string file;
 	string command;
-	int i = 0;
 	boost::char_separator<char> sep(" ");
 	if(str.find(">>") <= str.size())	{
 		/*command = str.substr(0, str.find(">>") + 1);
@@ -297,7 +296,7 @@ string prompt()	{
 	size_t length = temp.size();
 	if(temp.compare("exit") == 0)
 		exit(1);
-	int comment = temp.find("#");
+	unsigned comment = temp.find("#");
 	if(comment <= length)
 		temp = temp.substr(0, comment);
 	size_t location = temp.find(">>");
@@ -337,7 +336,7 @@ int main(int argc, char** argv)	{
 			int i = 0;
 			string str;
 			boost::char_separator<char> separator(" ");
-			boost:tokenizer <boost::char_separator<char> > tok(command, separator);
+			boost::tokenizer <boost::char_separator<char> > tok(command, separator);
 			for(boost::tokenizer <boost::char_separator<char> >::iterator it = tok.begin(); it != tok.end(); i++)	{
 			
 				commandList.push_back(*it);
