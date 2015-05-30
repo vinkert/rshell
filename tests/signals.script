@@ -1,0 +1,33 @@
+Script started on Fri 29 May 2015 08:04:55 PM PDT
+~
+vchan019@hammer $ cd rshell
+~/rshell
+vchan019@hammer $ make
+mkdir -p bin
+#g++ -ansi -pedantic -Wall -Werror src/main.cpp -o bin/rshell
+#g++ -ansi -pedantic -Wall -Werror src/redir.cpp -o bin/rshell
+g++ -ansi -pedantic -Wall -Werror src/cd.cpp -o bin/rshell
+g++ -ansi -pedantic -Wall -Werror src/cp.cpp -o bin/cp
+g++ -ansi -pedantic -Wall -Werror src/ls.cpp -o bin/ls
+~/rshell
+vchan019@hammer $ bin/rshell
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ src/./a.out
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ exit
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ nonExistantProgram
+ERROR IN EXECUTING COMMAND LINE 202: No such file or directory
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ cd src
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell/src$ ./a.out
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell/src$ exit
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell/src$ ^C^C^C^C^C^C^C
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell/src$ cd ..
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ cd nonExists entDir
+error in chdir: No such file or directory
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ cd ~
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019$ cd -
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019/rshell$ cd  
+vchan019@hammer.cs.ucr.edu /home/csmajs/vchan019$ exit
+~/rshell
+vchan019@hammer $ exit
+exit
+
+Script done on Fri 29 May 2015 08:10:32 PM PDT
